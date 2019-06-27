@@ -1,4 +1,4 @@
-package Model;
+package main.wiffelapp.Model;
 
 /**
  * Player class

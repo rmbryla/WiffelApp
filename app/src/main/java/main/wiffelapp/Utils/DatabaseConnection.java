@@ -1,4 +1,4 @@
-package Utils;
+package main.wiffelapp.Utils;
 
 public class DatabaseConnection {
 }
