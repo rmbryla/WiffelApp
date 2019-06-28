@@ -3,12 +3,18 @@ package main.wiffelapp.UI.GameSelect;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
+import main.wiffelapp.Model.Game;
+import main.wiffelapp.Model.Player;
 import main.wiffelapp.R;
 import main.wiffelapp.UI.signIn.SignInActivity;
 
@@ -24,17 +30,29 @@ public class GameSelectActivity extends AppCompatActivity {
 
         LinearLayout linearLayout = findViewById(R.id.game_linear_layout);
 
-        for (int i = 0; i < 40; i++) {
-            TextView textView = new TextView(getApplicationContext());
-            textView.setText("Game: " + i);
-            textView.setTextSize(20);
-            textView.setPadding(0,5,0,5);
-            linearLayout.addView(textView);
+        ArrayList<Game> games = makeGames();
+
+        for (Game game : games) {
+            ConstraintLayout gameView = (ConstraintLayout) getLayoutInflater().inflate(R.layout.game_card, null);
+            ((TextView) gameView.getViewById(R.id.game_name)).setText(game.getName());
+            ((TextView) gameView.getViewById(R.id.home_team_name)).setText(game.getHomeName());
+            ((TextView) gameView.getViewById(R.id.away_team_name)).setText(game.getAwayName());
+            ((TextView) gameView.getViewById(R.id.home_team_score)).setText(Integer.toString(game.getHomeScore()));
+            ((TextView) gameView.getViewById(R.id.away_team_score)).setText(Integer.toString(game.getAwayScore()));
+            linearLayout.addView(gameView);
         }
 
         final AppCompatActivity self = this;
 
 
+    }
+
+    private ArrayList<Game> makeGames(){
+        ArrayList<Game> games = new ArrayList<>();
+        for (int i = 0; i < 40; i++) {
+            games.add(new Game(Integer.toString(i), "Home", "Away", 0, 0, new Player[0], new Player[0]));
+        }
+        return games;
     }
 
     @Override
