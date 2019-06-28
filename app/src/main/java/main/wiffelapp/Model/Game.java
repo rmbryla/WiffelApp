@@ -21,6 +21,7 @@ public class Game {
         return homeName;
     }
 
+
     public String getAwayName() {
         return awayName;
     }
