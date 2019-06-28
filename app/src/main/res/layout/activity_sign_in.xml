@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/league_label"
         android:text="League"
-        android:textSize="20sp"
+        android:textSize="@dimen/font_size"
         android:layout_marginTop="80dp"
         android:layout_marginLeft="@dimen/left_margin"
         android:layout_marginRight="@dimen/right_margin"
@@ -26,7 +26,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="@dimen/left_margin"
         android:layout_marginRight="@dimen/right_margin"
-        android:textSize="20sp"
+        android:textSize="@dimen/font_size"
         app:layout_constraintTop_toBottomOf="@+id/league_label"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -42,7 +42,7 @@
         android:paddingBottom="8dp"
         android:paddingTop="30dp"
         android:text="Password"
-        android:textSize="20sp"
+        android:textSize="@dimen/font_size"
         app:layout_constraintTop_toBottomOf="@id/league_input"
         tools:layout_editor_absoluteX="16dp" />
 
@@ -55,7 +55,7 @@
         android:layout_marginRight="@dimen/right_margin"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:textSize="20sp"
+        android:textSize="@dimen/font_size"
         app:layout_constraintTop_toBottomOf="@+id/password_label"
         tools:layout_editor_absoluteX="16dp" />
 
