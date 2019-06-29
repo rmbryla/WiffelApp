@@ -10,9 +10,9 @@
         android:layout_height="wrap_content"
         android:text="PLACEHOLDER"
         android:textSize="@dimen/font_size_20"
-        android:layout_marginLeft="@dimen/right_margin"
-        android:layout_marginTop="@dimen/right_margin"
-        android:paddingBottom="@dimen/right_margin"
+        android:layout_marginLeft="@dimen/common_dimen_16"
+        android:layout_marginTop="@dimen/common_dimen_16"
+        android:paddingBottom="@dimen/common_dimen_16"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
 
@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:text="HOME"
         android:textSize="@dimen/font_size_20"
-        android:layout_marginLeft="@dimen/right_margin"
+        android:layout_marginLeft="@dimen/common_dimen_16"
         app:layout_constraintTop_toBottomOf="@id/game_name"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="SCORE"
         android:textSize="@dimen/font_size_20"
-        android:layout_marginRight="@dimen/right_margin"
+        android:layout_marginRight="@dimen/common_dimen_16"
         app:layout_constraintTop_toBottomOf="@id/game_name"
         app:layout_constraintEnd_toEndOf="parent"
         />
@@ -45,8 +45,8 @@
         android:layout_height="wrap_content"
         android:text="HOME"
         android:textSize="@dimen/font_size_20"
-        android:layout_marginLeft="@dimen/right_margin"
-        android:paddingTop="@dimen/right_margin"
+        android:layout_marginLeft="@dimen/common_dimen_16"
+        android:paddingTop="@dimen/common_dimen_16"
         app:layout_constraintTop_toBottomOf="@id/home_team_name"
         app:layout_constraintStart_toStartOf="parent"
         />
@@ -57,8 +57,8 @@
         android:layout_height="wrap_content"
         android:text="SCORE"
         android:textSize="@dimen/font_size_20"
-        android:layout_marginRight="@dimen/right_margin"
-        android:paddingTop="@dimen/right_margin"
+        android:layout_marginRight="@dimen/common_dimen_16"
+        android:paddingTop="@dimen/common_dimen_16"
         app:layout_constraintTop_toBottomOf="@id/home_team_score"
         app:layout_constraintEnd_toEndOf="parent"
         />
@@ -67,7 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
-        android:layout_marginTop="@dimen/right_margin"
+        android:layout_marginTop="@dimen/common_dimen_16"
         app:layout_constraintTop_toBottomOf="@id/away_team_name"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -24,6 +24,7 @@
         android:id="@+id/new_game_button"
         android:textSize="@dimen/font_size_20"
         android:text="New Game"
+        android:textAllCaps="false"
         android:layout_marginBottom="10dp"
         android:layout_marginLeft="10dp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import main.wiffelapp.Model.Game;
 import main.wiffelapp.Model.Player;
 import main.wiffelapp.R;
+import main.wiffelapp.UI.NewGame.NewGameActivity;
 import main.wiffelapp.UI.signIn.SignInActivity;
 
 public class GameSelectActivity extends AppCompatActivity {
@@ -43,6 +44,17 @@ public class GameSelectActivity extends AppCompatActivity {
         }
 
         final AppCompatActivity self = this;
+
+        Button newGameButton = findViewById(R.id.new_game_button);
+
+        newGameButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(self, NewGameActivity.class);
+
+                startActivity(intent);
+            }
+        });
 
 
     }
