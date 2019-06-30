@@ -15,6 +15,7 @@
 
     <EditText
         android:id="@+id/incremental_value"
+        android:inputType="number"
         android:layout_width="@dimen/incrementer_width_height"
         android:layout_height="@dimen/incrementer_width_height"
         android:textSize="@dimen/font_size_16"

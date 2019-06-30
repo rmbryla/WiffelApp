@@ -17,6 +17,7 @@ import main.wiffelapp.Model.Player;
 import main.wiffelapp.Observers.GameHandler;
 import main.wiffelapp.R;
 import main.wiffelapp.UI.CreatePlayer.CreatePlayerActivity;
+import main.wiffelapp.UI.NewGame.NewGameActivity;
 
 public class CreateTeamActivity extends AppCompatActivity {
 
@@ -59,6 +60,16 @@ public class CreateTeamActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        findViewById(R.id.create_team_done_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(self, NewGameActivity.class);
+
+                startActivity(intent);
+            }
+        });
+
 
     }
 

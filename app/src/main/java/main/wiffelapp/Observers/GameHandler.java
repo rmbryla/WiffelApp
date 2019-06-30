@@ -66,6 +66,14 @@ public class GameHandler {
         return game;
     }
 
+    public static String getHomeTeamName() {
+        return game.getHomeName();
+    }
+
+    public static String getAwayTeamName() {
+        return game.getAwayName();
+    }
+
     public static String getCurrentTeamName() {
         return (currentTeam.equals(TeamType.Home) ? game.getHomeName() : game.getAwayName());
     }
