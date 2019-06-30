@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -10,8 +11,8 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_dimen_32"
-        android:layout_marginLeft="@dimen/common_dimen_16"
-        android:textSize="@dimen/font_size_16"
+        android:layout_marginLeft="12dp"
+        android:textSize="@dimen/font_size_20"
         android:hint="Player Name"
 
         app:layout_constraintTop_toTopOf="parent"
@@ -21,10 +22,11 @@
     <EditText
         android:id="@+id/create_player_player_number"
         android:layout_width="60dp"
-        android:textSize="@dimen/font_size_16"
+        android:textSize="@dimen/font_size_20"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/common_dimen_32"
         android:layout_marginTop="@dimen/common_dimen_32"
+        android:layout_marginRight="120dp"
+
         android:hint="#"
 
         app:layout_constraintTop_toTopOf="parent"
@@ -45,14 +47,228 @@
 
         />
 
-    <main.wiffelapp.UI.IncrementerDecrementer
-        android:id="@+id/quantity_stepper"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_dimen_16"
-        android:layout_marginTop="@dimen/common_dimen_16"
-        app:layout_constraintTop_toBottomOf="@id/create_player_player_name"
-        app:layout_constraintRight_toRightOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="70dp"
+        android:gravity="center_vertical"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        >
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/create_player_text_singles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Singles"
+                android:textSize="@dimen/font_size_20"
+                android:layout_marginStart="@dimen/common_dimen_16"
+                android:layout_marginTop="@dimen/common_dimen_16"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                />
+
+            <main.wiffelapp.UI.IncrementerDecrementer
+                android:id="@+id/create_player_singles_incrementer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_dimen_16"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_text_singles">
+            </main.wiffelapp.UI.IncrementerDecrementer>
+
+
+
+            <TextView
+                android:id="@+id/create_player_text_doubles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Doubles"
+                android:textSize="@dimen/font_size_20"
+                android:layout_marginStart="@dimen/common_dimen_16"
+                android:layout_marginTop="@dimen/common_dimen_32"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_singles_incrementer" />
+
+            <main.wiffelapp.UI.IncrementerDecrementer
+                android:id="@+id/create_player_doubles_incrementer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_dimen_16"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_text_doubles">
+            </main.wiffelapp.UI.IncrementerDecrementer>
+
+
+
+            <TextView
+                android:id="@+id/create_player_text_ground_roll_doubles"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ground Roll Double"
+                android:textSize="@dimen/font_size_20"
+                android:layout_marginStart="@dimen/common_dimen_16"
+                android:layout_marginTop="@dimen/common_dimen_32"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_doubles_incrementer" />
+
+            <main.wiffelapp.UI.IncrementerDecrementer
+                android:id="@+id/create_player_ground_roll_doubles_incrementer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_dimen_16"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_text_ground_roll_doubles">
+            </main.wiffelapp.UI.IncrementerDecrementer>
+
+
+            <TextView
+                android:id="@+id/create_player_text_squantos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SQUANTO"
+                android:textSize="@dimen/font_size_20"
+                android:layout_marginStart="@dimen/common_dimen_16"
+                android:layout_marginTop="@dimen/common_dimen_32"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_ground_roll_doubles_incrementer" />
+
+            <main.wiffelapp.UI.IncrementerDecrementer
+                android:id="@+id/create_player_squanto_incrementer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_dimen_16"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_text_squantos">
+            </main.wiffelapp.UI.IncrementerDecrementer>
+
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            tools:layout_editor_absoluteX="136dp">
+
+            <TextView
+                android:id="@+id/create_player_text_triples"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_dimen_16"
+                android:layout_marginTop="@dimen/common_dimen_16"
+                android:text="Triples"
+                android:textSize="@dimen/font_size_20"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <main.wiffelapp.UI.IncrementerDecrementer
+                android:id="@+id/create_player_triples_incrementer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_dimen_16"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_text_triples">
+            </main.wiffelapp.UI.IncrementerDecrementer>
+
+            <TextView
+                android:id="@+id/create_player_text_home_runs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home Runs"
+                android:textSize="@dimen/font_size_20"
+                android:layout_marginStart="@dimen/common_dimen_16"
+                android:layout_marginTop="@dimen/common_dimen_32"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_triples_incrementer" />
+
+            <main.wiffelapp.UI.IncrementerDecrementer
+                android:id="@+id/create_player_home_run_incrementer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_dimen_16"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_text_home_runs">
+            </main.wiffelapp.UI.IncrementerDecrementer>
+
+
+            <TextView
+                android:id="@+id/create_player_text_grand_slams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Grand Slams"
+                android:textSize="@dimen/font_size_20"
+                android:layout_marginStart="@dimen/common_dimen_16"
+                android:layout_marginTop="@dimen/common_dimen_32"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_home_run_incrementer" />
+
+            <main.wiffelapp.UI.IncrementerDecrementer
+                android:id="@+id/create_player_grand_slam_incrementer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_dimen_16"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_text_grand_slams">
+            </main.wiffelapp.UI.IncrementerDecrementer>
+
+
+            <TextView
+                android:id="@+id/create_player_text_outs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Outs"
+                android:textSize="@dimen/font_size_20"
+                android:layout_marginStart="@dimen/common_dimen_16"
+                android:layout_marginTop="@dimen/common_dimen_32"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_grand_slam_incrementer" />
+
+            <main.wiffelapp.UI.IncrementerDecrementer
+                android:id="@+id/create_player_out_incrementer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/common_dimen_16"
+
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/create_player_text_outs">
+            </main.wiffelapp.UI.IncrementerDecrementer>
+
+
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </LinearLayout>
 
 
 

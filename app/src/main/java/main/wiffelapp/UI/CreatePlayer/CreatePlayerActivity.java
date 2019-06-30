@@ -30,6 +30,10 @@ public class CreatePlayerActivity extends AppCompatActivity {
 
                 GameHandler.addPlayer(new Player(name, number));
 
+
+
+
+
                 Intent intent = new Intent(self, CreateTeamActivity.class);
 
                 startActivity(intent);
