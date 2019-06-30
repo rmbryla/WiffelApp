@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="incrementer_decrementer">
+        <attr name="value" format="integer">0</attr>
+    </declare-styleable>
+
+</resources>

@@ -8,10 +8,12 @@ public class Game {
     private String name;
     private int homeScore;
     private int awayScore;
-    ArrayList<Player> homeTeam;
-    ArrayList<Player>awayTeam;
+    private ArrayList<Player> homeTeam;
+    private ArrayList<Player>awayTeam;
 
     public Game() {
+        this.homeTeam = new ArrayList<>();
+        this.awayTeam = new ArrayList<>();
     }
 
     public Game(String name, String homeName, String awayName, int homeScore, int awayScore, ArrayList<Player> homeTeam, ArrayList<Player> awayTeam) {
@@ -79,5 +81,13 @@ public class Game {
 
     public void setAwayTeam(ArrayList<Player> awayTeam) {
         this.awayTeam = awayTeam;
+    }
+
+    public void addHomePlayer(Player p) {
+        this.homeTeam.add(p);
+    }
+
+    public void addAwayPlayer(Player p) {
+        this.awayTeam.add(p);
     }
 }

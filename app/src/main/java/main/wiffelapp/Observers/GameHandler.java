@@ -50,6 +50,14 @@ public class GameHandler {
         GameHandler.currentTeam = currentTeam;
     }
 
+    public static void addPlayer(Player p) {
+        if (currentTeam.equals(TeamType.Home)) {
+            game.addHomePlayer(p);
+        } else {
+            game.addAwayPlayer(p);
+        }
+    }
+
     public static ArrayList<Player> getCurrentTeam() {
         return (currentTeam.equals(TeamType.Home) ? game.getHomeTeam() : game.getAwayTeam());
     }

@@ -23,6 +23,8 @@
         <activity android:name=".UI.NewGame.NewGameActivity"></activity>
 
         <activity android:name=".UI.CreateTeam.CreateTeamActivity"></activity>
+
+        <activity android:name=".UI.CreatePlayer.CreatePlayerActivity"></activity>
     </application>
 
 </manifest>
