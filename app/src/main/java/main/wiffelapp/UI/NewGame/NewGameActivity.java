@@ -72,5 +72,20 @@ public class NewGameActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+        findViewById(R.id.new_game_make_finished_game_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO implement submitting a game to database
+            }
+        });
+
+        findViewById(R.id.new_game_start_game_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO implement start game functionality
+            }
+        });
     }
 }
