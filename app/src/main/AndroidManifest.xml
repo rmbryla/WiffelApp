@@ -21,6 +21,8 @@
         <activity android:name=".UI.GameSelect.GameSelectActivity"></activity>
 
         <activity android:name=".UI.NewGame.NewGameActivity"></activity>
+
+        <activity android:name=".UI.CreateTeam.CreateTeamActivity"></activity>
     </application>
 
 </manifest>

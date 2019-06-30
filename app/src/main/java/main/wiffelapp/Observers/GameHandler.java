@@ -2,41 +2,63 @@ package main.wiffelapp.Observers;
 
 import android.support.v7.app.AppCompatActivity;
 
+import java.util.ArrayList;
+
 import main.wiffelapp.Model.Game;
 import main.wiffelapp.Model.Player;
 
 public class GameHandler {
     private static Game game;
+    private static TeamType currentTeam = TeamType.Home;
+    public enum TeamType {
+        Home, Away;
+    }
 
-    public void initializeNewGame() {
+    public static void initializeNewGame() {
         game = new Game();
     }
 
-    public void setHomeName(String homeName) {
+    public static void setHomeName(String homeName) {
         game.setHomeName(homeName);
     }
 
-    public void setAwayName(String awayName) {
+    public static void setAwayName(String awayName) {
         game.setAwayName(awayName);
     }
 
-    public void setName(String name) {
+    public static void setName(String name) {
         game.setName(name);
     }
 
-    public void setHomeScore(int homeScore) {
+    public static void setHomeScore(int homeScore) {
         game.setHomeScore(homeScore);
     }
 
-    public void setAwayScore(int awayScore) {
+    public static void setAwayScore(int awayScore) {
         game.setHomeScore(awayScore);
     }
 
-    public void setHomeTeam(Player[] homeTeam) {
+    public static void setHomeTeam(ArrayList<Player> homeTeam) {
         game.setHomeTeam(homeTeam);
     }
 
-    public void setAwayTeam(Player[] awayTeam) {
+    public static void setAwayTeam(ArrayList<Player> awayTeam) {
         game.setAwayTeam(awayTeam);
+    }
+
+    public static void setCurrentTeam(TeamType currentTeam) {
+        GameHandler.currentTeam = currentTeam;
+    }
+
+    public static ArrayList<Player> getCurrentTeam() {
+        return (currentTeam.equals(TeamType.Home) ? game.getHomeTeam() : game.getAwayTeam());
+    }
+
+    public static Game getGame() {
+        return game;
+    }
+
+    public static String getCurrentTeamName() {
+        return (currentTeam.equals(TeamType.Home) ? game.getHomeName() : game.getAwayName());
     }
 }

@@ -1,18 +1,20 @@
 package main.wiffelapp.Model;
 
+import java.util.ArrayList;
+
 public class Game {
     private String homeName;
     private String awayName;
     private String name;
     private int homeScore;
     private int awayScore;
-    Player[] homeTeam;
-    Player[] awayTeam;
+    ArrayList<Player> homeTeam;
+    ArrayList<Player>awayTeam;
 
     public Game() {
     }
 
-    public Game(String name, String homeName, String awayName, int homeScore, int awayScore, Player[] homeTeam, Player[] awayTeam) {
+    public Game(String name, String homeName, String awayName, int homeScore, int awayScore, ArrayList<Player> homeTeam, ArrayList<Player> awayTeam) {
         this.name = name;
         this.homeName = homeName;
         this.awayName = awayName;
@@ -42,11 +44,11 @@ public class Game {
         return awayScore;
     }
 
-    public Player[] getHomeTeam() {
+    public ArrayList<Player> getHomeTeam() {
         return homeTeam;
     }
 
-    public Player[] getAwayTeam() {
+    public ArrayList<Player> getAwayTeam() {
         return awayTeam;
     }
 
@@ -71,11 +73,11 @@ public class Game {
         this.awayScore = awayScore;
     }
 
-    public void setHomeTeam(Player[] homeTeam) {
+    public void setHomeTeam(ArrayList<Player> homeTeam) {
         this.homeTeam = homeTeam;
     }
 
-    public void setAwayTeam(Player[] awayTeam) {
+    public void setAwayTeam(ArrayList<Player> awayTeam) {
         this.awayTeam = awayTeam;
     }
 }

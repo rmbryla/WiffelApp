@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import main.wiffelapp.Model.Game;
@@ -62,7 +61,7 @@ public class GameSelectActivity extends AppCompatActivity {
     private ArrayList<Game> makeGames(){
         ArrayList<Game> games = new ArrayList<>();
         for (int i = 0; i < 40; i++) {
-            games.add(new Game("Game: " + Integer.toString(i), "Home", "Away", (int) (Math.random()*20), (int) (Math.random()*20), new Player[0], new Player[0]));
+            games.add(new Game("Game: " + Integer.toString(i), "Home", "Away", (int) (Math.random()*20), (int) (Math.random()*20), new ArrayList<Player>(), new ArrayList<Player>()));
         }
         return games;
     }
