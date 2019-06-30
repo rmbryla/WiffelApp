@@ -45,10 +45,14 @@
 
         />
 
-    <main.wiffelapp.customviews.IncrementerDecrementer.incrementer_decrementer
-        android:layout_width="wrap_content"
+    <main.wiffelapp.UI.IncrementerDecrementer
+        android:id="@+id/quantity_stepper"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/create_player_player_name"/>
+        android:layout_marginStart="@dimen/common_dimen_16"
+        android:layout_marginTop="@dimen/common_dimen_16"
+        app:layout_constraintTop_toBottomOf="@id/create_player_player_name"
+        app:layout_constraintRight_toRightOf="parent" />
 
 
 
