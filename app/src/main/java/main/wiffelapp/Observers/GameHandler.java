@@ -62,6 +62,14 @@ public class GameHandler {
         return (currentTeam.equals(TeamType.Home) ? game.getHomeTeam() : game.getAwayTeam());
     }
 
+    public static ArrayList<Player> getHomeTeam() {
+        return game.getHomeTeam();
+    }
+
+    public static ArrayList<Player> getAwayTeam() {
+        return game.getAwayTeam();
+    }
+
     public static Game getGame() {
         return game;
     }

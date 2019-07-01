@@ -1,5 +1,7 @@
 package main.wiffelapp.Model;
 
+import android.support.annotation.Nullable;
+
 /**
  * Player class
  * @author Ryan Bryla
@@ -151,4 +153,12 @@ public class Player {
         this.outs = outs;
     }
 
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        if (obj == null) return false;
+        if (!(obj instanceof Player)) return false;
+        Player other = (Player) obj;
+        return this.NAME.equals(other.NAME) && (this.PLAYER_NUMBER == other.PLAYER_NUMBER);
+    }
 }

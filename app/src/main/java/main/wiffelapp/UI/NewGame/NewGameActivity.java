@@ -11,6 +11,7 @@ import main.wiffelapp.Model.Game;
 import main.wiffelapp.Model.Player;
 import main.wiffelapp.Observers.GameHandler;
 import main.wiffelapp.R;
+import main.wiffelapp.UI.ConfirmGame.ConfirmGameActivity;
 import main.wiffelapp.UI.CreateTeam.CreateTeamActivity;
 
 public class NewGameActivity extends AppCompatActivity {
@@ -84,7 +85,9 @@ public class NewGameActivity extends AppCompatActivity {
         findViewById(R.id.new_game_start_game_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO implement start game functionality
+                Intent intent = new Intent(self, ConfirmGameActivity.class);
+
+                startActivity(intent);
             }
         });
     }
