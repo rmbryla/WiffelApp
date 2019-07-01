@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <EditText
-        android:id="@+id/game_name_input"
+        android:id="@+id/new_game_game_name_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -26,7 +26,7 @@
         android:textStyle="italic"
 
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/game_name_input"
+        app:layout_constraintTop_toBottomOf="@+id/new_game_game_name_input"
         />
 
     <Button
@@ -39,7 +39,7 @@
         android:layout_marginRight="@dimen/common_dimen_16"
         android:layout_marginTop="@dimen/common_dimen_16"
 
-        app:layout_constraintTop_toBottomOf="@+id/game_name_input"
+        app:layout_constraintTop_toBottomOf="@+id/new_game_game_name_input"
         app:layout_constraintRight_toRightOf="parent"
         />
 

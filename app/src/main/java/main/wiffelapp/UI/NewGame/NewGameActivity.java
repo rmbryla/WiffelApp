@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import main.wiffelapp.Model.Game;
@@ -23,6 +24,10 @@ public class NewGameActivity extends AppCompatActivity {
         final AppCompatActivity self = this;
 
         setContentView(R.layout.activity_new_game);
+
+        try {
+            ((EditText) findViewById(R.id.new_game_game_name_input)).setText(GameHandler.getGame().getName());
+        } catch (Exception e) {}
 
         try {
             String homeTeamName = GameHandler.getHomeTeamName();
@@ -46,6 +51,8 @@ public class NewGameActivity extends AppCompatActivity {
                     GameHandler.initializeNewGame();
                 }
 
+                GameHandler.setName(((TextView) findViewById(R.id.new_game_game_name_input)).getText().toString());
+
                 GameHandler.setHomeName(teamName.toString());
 
                 Intent intent = new Intent(self, CreateTeamActivity.class);
@@ -66,6 +73,8 @@ public class NewGameActivity extends AppCompatActivity {
                     GameHandler.initializeNewGame();
                 }
 
+                GameHandler.setName(((TextView) findViewById(R.id.new_game_game_name_input)).getText().toString());
+
                 GameHandler.setAwayName(teamName.toString());
 
                 Intent intent = new Intent(self, CreateTeamActivity.class);
@@ -85,6 +94,8 @@ public class NewGameActivity extends AppCompatActivity {
         findViewById(R.id.new_game_start_game_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GameHandler.setName(((TextView) findViewById(R.id.new_game_game_name_input)).getText().toString());
+
                 Intent intent = new Intent(self, ConfirmGameActivity.class);
 
                 startActivity(intent);
