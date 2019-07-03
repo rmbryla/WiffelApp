@@ -1,11 +1,15 @@
 package main.wiffelapp.Model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Game {
+public class Game implements Serializable {
     private String homeName;
     private String awayName;
     private String name;
+    private int innings;
+    private int currInning;
+    private Player atBat;
     private int homeScore;
     private int awayScore;
     private ArrayList<Player> homeTeam;
@@ -16,15 +20,24 @@ public class Game {
         this.awayTeam = new ArrayList<>();
     }
 
-    public Game(String name, String homeName, String awayName, int homeScore, int awayScore, ArrayList<Player> homeTeam, ArrayList<Player> awayTeam) {
-        this.name = name;
+    public Game(String homeName, String awayName, String name, int innings, int homeScore, int awayScore, ArrayList<Player> homeTeam, ArrayList<Player> awayTeam) {
         this.homeName = homeName;
         this.awayName = awayName;
+        this.name = name;
+        this.innings = innings;
         this.homeScore = homeScore;
         this.awayScore = awayScore;
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
+        this.currInning = 1;
+        this.atBat = (this.awayTeam.isEmpty()) ? null : awayTeam.get(0);
     }
+
+
+    public void startGame() {
+        this.atBat = this.awayTeam.get(0);
+    }
+
 
     public String getHomeName() {
         return homeName;
@@ -54,6 +67,13 @@ public class Game {
         return awayTeam;
     }
 
+    public int getInnings() {
+        return innings;
+    }
+
+    public Player getAtBat() {
+        return atBat;
+    }
 
     public void setHomeName(String homeName) {
         this.homeName = homeName;
@@ -89,5 +109,9 @@ public class Game {
 
     public void addAwayPlayer(Player p) {
         this.awayTeam.add(p);
+    }
+
+    public void setInnings(int innings) {
+        this.innings = innings;
     }
 }

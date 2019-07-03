@@ -49,6 +49,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/confirm_game_parent_linear_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="110dp"
@@ -76,9 +77,15 @@
 
             </LinearLayout>
 
-
-
         </ScrollView>
+
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@android:color/darker_gray">
+
+        </View>
 
 
         <ScrollView
@@ -95,6 +102,18 @@
             </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_marginLeft="@dimen/common_dimen_16"
+        android:layout_marginRight="@dimen/common_dimen_16"
+
+        app:layout_constraintTop_toBottomOf="@+id/confirm_game_parent_linear_layout">
+
+
+    </View>
 
     <Button
         android:id="@+id/confirm_game_start_game_button"

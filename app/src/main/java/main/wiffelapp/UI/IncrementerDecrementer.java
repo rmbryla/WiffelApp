@@ -17,6 +17,7 @@ public class IncrementerDecrementer extends LinearLayout {
     Button minusButton;
     EditText text;
     int minQunatity = 0;
+    int maxQuantity = Integer.MAX_VALUE;
 
     public IncrementerDecrementer(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
@@ -27,18 +28,34 @@ public class IncrementerDecrementer extends LinearLayout {
         minusButton = findViewById(R.id.decrement_button);
         text =findViewById(R.id.incremental_value);
 
+        int amount = getAmount();
+        if (amount - 1 < minQunatity) {
+            minusButton.setAlpha(0.3F);
+            minusButton.setClickable(false);
+        }
+
+        if (amount + 1 > maxQuantity) {
+            plusButton.setAlpha(0.3F);
+            plusButton.setClickable(false);
+        }
+
         plusButton.setOnClickListener(
                 new OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         int amount = getAmount();
-                        text.setText(Integer.toString(amount + 1));
-
-                        if(!minusButton.isClickable()){
-                            minusButton.setAlpha(1.0F);
-                            minusButton.setClickable(true);
+                        if (amount + 1 < maxQuantity) {
+                            text.setText(Integer.toString(amount + 1));
                         }
-                    }
+                        else {
+                            plusButton.setAlpha(0.3F);
+                            plusButton.setClickable(false);
+                            text.setText(Integer.toString(maxQuantity));
+                        }
+
+                        minusButton.setAlpha(1.0F);
+                        minusButton.setClickable(true);
+                        }
                 }
         );
 
@@ -55,6 +72,9 @@ public class IncrementerDecrementer extends LinearLayout {
                             minusButton.setClickable(false);
                             text.setText(Integer.toString(minQunatity));
                         }
+
+                        plusButton.setAlpha(1.0F);
+                        plusButton.setClickable(true);
                     }
                 }
         );
@@ -62,5 +82,10 @@ public class IncrementerDecrementer extends LinearLayout {
 
     public int getAmount(){
         return Integer.parseInt(text.getText().toString());
+    }
+
+    public void setMaxQuantity(int maxQuantity) {
+        if (maxQuantity < minQunatity) return;
+        this.maxQuantity = maxQuantity;
     }
 }

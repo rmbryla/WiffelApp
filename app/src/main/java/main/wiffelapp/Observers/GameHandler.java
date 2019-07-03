@@ -2,6 +2,12 @@ package main.wiffelapp.Observers;
 
 import android.support.v7.app.AppCompatActivity;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import main.wiffelapp.Model.Game;
@@ -12,6 +18,32 @@ public class GameHandler {
     private static TeamType currentTeam = TeamType.Home;
     public enum TeamType {
         Home, Away;
+    }
+
+
+    public static void saveGame() {
+        try {
+            FileOutputStream fos = new FileOutputStream("gameAutoSave.ser");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fos);
+
+            objectOutputStream.writeObject(game);
+        } catch (IOException e) {}
+    }
+
+    public static boolean loadGame() {
+        try {
+            FileInputStream fileInputStream = new FileInputStream("gameAutoSave.ser");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+
+            game = (Game) objectInputStream.readObject();
+            return true;
+        } catch (IOException | ClassNotFoundException e) {
+            return false;
+        }
+    }
+
+    public static Player getAtBat() {
+        return game.getAtBat();
     }
 
     public static void initializeNewGame() {

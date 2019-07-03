@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <Spinner
+        android:id="@+id/at_bat_play_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/common_dimen_16"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/at_bat_top_of_screen">
+
+    </Spinner>
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/at_bat_rbi_constraint_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/common_dimen_16"
+        android:layout_marginTop="@dimen/common_dimen_16"
+        android:layout_marginBottom="@dimen/common_dimen_16"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/at_bat_top_of_screen">
+
+        <TextView
+            android:id="@+id/at_bat_rbi_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size_20"
+            android:text="RBIs"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <main.wiffelapp.UI.IncrementerDecrementer
+            android:id="@+id/at_bat_rbi_incrementer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/at_bat_rbi_text">
+
+        </main.wiffelapp.UI.IncrementerDecrementer>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/at_bat_runs_constraint_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/common_dimen_16"
+        android:layout_marginTop="@dimen/common_dimen_16"
+        android:layout_marginBottom="@dimen/common_dimen_16"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/at_bat_rbi_constraint_layout">
+
+        <TextView
+            android:id="@+id/at_bat_runs_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size_20"
+            android:text="Runs"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <main.wiffelapp.UI.IncrementerDecrementer
+            android:id="@+id/at_bat_run_incrementer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/at_bat_runs_text">
+
+        </main.wiffelapp.UI.IncrementerDecrementer>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/common_dimen_16"
+        android:layout_marginTop="@dimen/common_dimen_16"
+        android:layout_marginBottom="@dimen/common_dimen_16"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/at_bat_runs_constraint_layout">
+
+        <TextView
+            android:id="@+id/at_bat_outs_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/font_size_20"
+            android:text="Outs"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <main.wiffelapp.UI.IncrementerDecrementer
+            android:id="@+id/at_bat_out_incrementer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/at_bat_outs_text">
+
+        </main.wiffelapp.UI.IncrementerDecrementer>
+
+
+    </android.support.constraint.ConstraintLayout>
+
+
+
+
+    <View
+        android:id="@+id/at_bat_top_of_screen"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="@dimen/common_dimen_16"
+        app:layout_constraintTop_toTopOf="parent">
+    </View>
+
+    <Button
+        android:id="@+id/at_bat_next_player_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/common_dimen_16"
+        android:layout_marginBottom="@dimen/common_dimen_16"
+        android:textSize="@dimen/font_size_16"
+        android:text="Next"
+        android:textAllCaps="false"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/at_bat_game_stats_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/common_dimen_16"
+        android:layout_marginBottom="@dimen/common_dimen_16"
+        android:textSize="@dimen/font_size_16"
+        android:text="Stats"
+        android:textAllCaps="false"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/at_bat_skip_batter_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/common_dimen_16"
+        android:layout_marginRight="@dimen/common_dimen_16"
+        android:textSize="@dimen/font_size_16"
+        android:text="Skip"
+        android:textAllCaps="false"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/at_bat_next_player_button" />
+
+
+
+</android.support.constraint.ConstraintLayout>

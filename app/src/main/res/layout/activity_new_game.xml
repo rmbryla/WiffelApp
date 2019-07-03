@@ -99,5 +99,32 @@
         app:layout_constraintBottom_toBottomOf="parent"
         />
 
+    <TextView
+        android:id="@+id/new_game_innings_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Innings"
+        android:layout_marginStart="@dimen/common_dimen_20"
+        android:layout_marginTop="@dimen/common_dimen_16"
+        android:textSize="@dimen/font_size_20"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_away_team_button"
+        />
+
+    <main.wiffelapp.UI.IncrementerDecrementer
+        android:id="@+id/new_game_innings_incrementer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/common_dimen_16"
+
+        app:layout_constraintLeft_toRightOf="@+id/new_game_innings_text"
+        app:layout_constraintTop_toTopOf="@+id/new_game_innings_text"
+        app:layout_constraintBottom_toBottomOf="@+id/new_game_innings_text"
+
+        >
+
+    </main.wiffelapp.UI.IncrementerDecrementer>
+
 
 </android.support.constraint.ConstraintLayout>

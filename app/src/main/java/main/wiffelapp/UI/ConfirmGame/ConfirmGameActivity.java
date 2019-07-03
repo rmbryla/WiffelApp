@@ -1,5 +1,6 @@
 package main.wiffelapp.UI.ConfirmGame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import main.wiffelapp.Model.Player;
 import main.wiffelapp.Observers.GameHandler;
 import main.wiffelapp.R;
+import main.wiffelapp.UI.AtBat.AtBatActivity;
 
 public class ConfirmGameActivity extends AppCompatActivity {
 
@@ -23,6 +25,7 @@ public class ConfirmGameActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_confirm_game);
 
+        final AppCompatActivity self = this;
 
         ArrayList<Player> homeTeamList = GameHandler.getHomeTeam();
         ArrayList<Player> awayTeamList = GameHandler.getAwayTeam();
@@ -61,7 +64,9 @@ public class ConfirmGameActivity extends AppCompatActivity {
         findViewById(R.id.confirm_game_start_game_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO go to at bat screen
+                Intent intent = new Intent(self, AtBatActivity.class);
+
+                startActivity(intent);
             }
         });
 
