@@ -2,6 +2,7 @@ package main.wiffelapp.UI.CreatePlayer;
 
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
+import android.support.constraint.ConstraintSet;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -38,25 +39,13 @@ public class CreatePlayerInfoWidget extends ConstraintLayout {
         doneButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                     LinearLayout completedInfo = new LinearLayout(context);
-                     completedInfo.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-                     completedInfo.setOrientation(LinearLayout.HORIZONTAL);
+                CreatePlayerCompletedInfoWidget completedInfo = new CreatePlayerCompletedInfoWidget(context);
 
-                     TextView infoTitle = new TextView(context);
-                     infoTitle.setText(categorySelecor.getSelectedItem().toString());
-                     infoTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP,16F);
-                     LinearLayout.LayoutParams textParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-                     textParams.setMargins(16,16,16,16);
-                     infoTitle.setLayoutParams(textParams);
+                completedInfo.infoText.setText(categorySelecor.getSelectedItem().toString());
+                completedInfo.infoText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                completedInfo.stepper.setAmount(stepper.getAmount());
 
-                     IncrementerDecrementer completedInfoStepper = new IncrementerDecrementer(context);
-                     completedInfoStepper.setAmount(stepper.getAmount());
-                     completedInfoStepper.setMargins(16, 16, 16, 16);
-
-                     completedInfo.addView(infoTitle);
-                     completedInfo.addView(completedInfoStepper);
-
-                     allInfo.addView(completedInfo);
+                allInfo.addView(completedInfo);
             }
         });
     }
