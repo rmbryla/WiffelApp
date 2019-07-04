@@ -9,10 +9,10 @@
         android:id="@+id/at_bat_play_spinner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/common_dimen_16"
+        android:layout_marginTop="@dimen/common_dimen_32"
 
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/at_bat_top_of_screen">
+        app:layout_constraintTop_toTopOf="@+id/at_bat_player_name">
 
     </Spinner>
 
@@ -21,11 +21,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/common_dimen_16"
-        android:layout_marginTop="@dimen/common_dimen_16"
+        android:layout_marginTop="@dimen/common_dimen_32"
         android:layout_marginBottom="@dimen/common_dimen_16"
 
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/at_bat_top_of_screen">
+        app:layout_constraintTop_toTopOf="@+id/at_bat_player_number">
 
         <TextView
             android:id="@+id/at_bat_rbi_text"
@@ -128,6 +128,32 @@
     </android.support.constraint.ConstraintLayout>
 
 
+    <TextView
+        android:id="@+id/at_bat_player_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PLAYER NAME"
+        android:layout_marginLeft="@dimen/common_dimen_16"
+        android:layout_marginTop="@dimen/common_dimen_16"
+        android:textSize="@dimen/font_size_20"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/at_bat_top_of_screen"
+        />
+
+    <TextView
+        android:id="@+id/at_bat_player_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NUM"
+        android:layout_marginRight="@dimen/common_dimen_16"
+        android:layout_marginTop="@dimen/common_dimen_16"
+        android:textSize="@dimen/font_size_20"
+
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/at_bat_top_of_screen"
+
+        />
 
 
     <View

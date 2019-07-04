@@ -56,13 +56,12 @@ public class CreatePlayerActivity extends AppCompatActivity {
                 int gs = ((IncrementerDecrementer) findViewById(R.id.create_player_grand_slam_incrementer)).getAmount();
                 int squantos = ((IncrementerDecrementer) findViewById(R.id.create_player_squanto_incrementer)).getAmount();
                 int outs = ((IncrementerDecrementer) findViewById(R.id.create_player_out_incrementer)).getAmount();
-                int atBats = ((IncrementerDecrementer) findViewById(R.id.create_player_at_bat_incrementer)).getAmount();
                 int rbis = ((IncrementerDecrementer) findViewById(R.id.create_player_rbi_incrementer)).getAmount();
                 int hits = singles + doubles + triples + homeRuns + grd + gs + squantos;
 
 
 
-                GameHandler.addPlayer(new Player(name, number, atBats, hits, singles, doubles,
+                GameHandler.addPlayer(new Player(name, number, hits, singles, doubles,
                                                  triples, homeRuns, gs, grd, squantos, rbis, 0, outs));
 
 

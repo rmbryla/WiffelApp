@@ -42,6 +42,10 @@ public class GameHandler {
         }
     }
 
+    public static void startGame() {
+        game.startGame();
+    }
+
     public static Player getAtBat() {
         return game.getAtBat();
     }
@@ -52,6 +56,10 @@ public class GameHandler {
 
     public static void setHomeName(String homeName) {
         game.setHomeName(homeName);
+    }
+
+    public static void setInnings(int innings) {
+        game.setInnings(innings);
     }
 
     public static void setAwayName(String awayName) {
@@ -116,5 +124,9 @@ public class GameHandler {
 
     public static String getCurrentTeamName() {
         return (currentTeam.equals(TeamType.Home) ? game.getHomeName() : game.getAwayName());
+    }
+
+    public static int getInnings() {
+        return game.getInnings();
     }
 }

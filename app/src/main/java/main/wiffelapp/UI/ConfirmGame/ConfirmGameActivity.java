@@ -64,6 +64,8 @@ public class ConfirmGameActivity extends AppCompatActivity {
         findViewById(R.id.confirm_game_start_game_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                GameHandler.startGame();
+
                 Intent intent = new Intent(self, AtBatActivity.class);
 
                 startActivity(intent);

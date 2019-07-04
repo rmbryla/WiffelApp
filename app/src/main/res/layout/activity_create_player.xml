@@ -159,11 +159,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/create_player_text_squantos">
             </main.wiffelapp.UI.IncrementerDecrementer>
 
+
             <TextView
-                android:id="@+id/create_player_text_at_bats"
+                android:id="@+id/create_player_text_rbis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="At Bats"
+                android:text="RBIs"
                 android:textSize="@dimen/font_size_20"
                 android:layout_marginStart="@dimen/common_dimen_16"
                 android:layout_marginTop="@dimen/common_dimen_16"
@@ -172,16 +173,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/create_player_squanto_incrementer" />
 
             <main.wiffelapp.UI.IncrementerDecrementer
-                android:id="@+id/create_player_at_bat_incrementer"
+                android:id="@+id/create_player_rbi_incrementer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/common_dimen_16"
 
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/create_player_text_at_bats">
+                app:layout_constraintTop_toBottomOf="@+id/create_player_text_rbis">
             </main.wiffelapp.UI.IncrementerDecrementer>
-
-
 
         </android.support.constraint.ConstraintLayout>
 
@@ -284,32 +283,6 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/create_player_text_outs">
             </main.wiffelapp.UI.IncrementerDecrementer>
-
-
-            <TextView
-                android:id="@+id/create_player_text_rbis"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RBIs"
-                android:textSize="@dimen/font_size_20"
-                android:layout_marginStart="@dimen/common_dimen_16"
-                android:layout_marginTop="@dimen/common_dimen_16"
-
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/create_player_out_incrementer" />
-
-            <main.wiffelapp.UI.IncrementerDecrementer
-                android:id="@+id/create_player_rbi_incrementer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/common_dimen_16"
-
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/create_player_text_rbis">
-            </main.wiffelapp.UI.IncrementerDecrementer>
-
-
-
 
         </android.support.constraint.ConstraintLayout>
 

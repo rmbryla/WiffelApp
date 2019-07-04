@@ -14,6 +14,7 @@ import main.wiffelapp.Observers.GameHandler;
 import main.wiffelapp.R;
 import main.wiffelapp.UI.ConfirmGame.ConfirmGameActivity;
 import main.wiffelapp.UI.CreateTeam.CreateTeamActivity;
+import main.wiffelapp.UI.IncrementerDecrementer;
 
 public class NewGameActivity extends AppCompatActivity {
 
@@ -39,6 +40,12 @@ public class NewGameActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.away_team_name_input)).setText(awayTeamName);
         } catch (Exception e) {}
 
+        try {
+            int innings = GameHandler.getInnings();
+            ((IncrementerDecrementer) findViewById(R.id.new_game_innings_incrementer)).setAmount(innings);
+        } catch (Exception e) {}
+
+
         findViewById(R.id.create_home_team_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,6 +57,8 @@ public class NewGameActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     GameHandler.initializeNewGame();
                 }
+
+                GameHandler.setInnings(((IncrementerDecrementer) findViewById(R.id.new_game_innings_incrementer)).getAmount());
 
                 GameHandler.setName(((TextView) findViewById(R.id.new_game_game_name_input)).getText().toString());
 
@@ -73,6 +82,8 @@ public class NewGameActivity extends AppCompatActivity {
                     GameHandler.initializeNewGame();
                 }
 
+                GameHandler.setInnings(((IncrementerDecrementer) findViewById(R.id.new_game_innings_incrementer)).getAmount());
+
                 GameHandler.setName(((TextView) findViewById(R.id.new_game_game_name_input)).getText().toString());
 
                 GameHandler.setAwayName(teamName.toString());
@@ -95,6 +106,7 @@ public class NewGameActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 GameHandler.setName(((TextView) findViewById(R.id.new_game_game_name_input)).getText().toString());
+                GameHandler.setInnings(((IncrementerDecrementer) findViewById(R.id.new_game_innings_incrementer)).getAmount());
 
                 Intent intent = new Intent(self, ConfirmGameActivity.class);
 
