@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import main.wiffelapp.Model.Player;
@@ -23,6 +24,8 @@ public class CreatePlayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_player);
 
         final AppCompatActivity self = this;
+
+        ((CreatePlayerInfoWidget) findViewById(R.id.create_player_current_info)).setAllInfo((LinearLayout) findViewById(R.id.create_player_info));
 
         findViewById(R.id.create_player_done_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,21 +51,20 @@ public class CreatePlayerActivity extends AppCompatActivity {
                     return;
                 }
 
-                int singles = ((IncrementerDecrementer) findViewById(R.id.create_player_singles_incrementer)).getAmount();
-                int doubles = ((IncrementerDecrementer) findViewById(R.id.create_player_doubles_incrementer)).getAmount();
-                int triples = ((IncrementerDecrementer) findViewById(R.id.create_player_triples_incrementer)).getAmount();
-                int homeRuns = ((IncrementerDecrementer) findViewById(R.id.create_player_home_run_incrementer)).getAmount();
-                int grd = ((IncrementerDecrementer) findViewById(R.id.create_player_ground_roll_doubles_incrementer)).getAmount();
-                int gs = ((IncrementerDecrementer) findViewById(R.id.create_player_grand_slam_incrementer)).getAmount();
-                int squantos = ((IncrementerDecrementer) findViewById(R.id.create_player_squanto_incrementer)).getAmount();
-                int outs = ((IncrementerDecrementer) findViewById(R.id.create_player_out_incrementer)).getAmount();
-                int rbis = ((IncrementerDecrementer) findViewById(R.id.create_player_rbi_incrementer)).getAmount();
-                int hits = singles + doubles + triples + homeRuns + grd + gs + squantos;
+//                int singles = ((IncrementerDecrementer) findViewById(R.id.create_player_singles_incrementer)).getAmount();
+//                int doubles = ((IncrementerDecrementer) findViewById(R.id.create_player_doubles_incrementer)).getAmount();
+//                int triples = ((IncrementerDecrementer) findViewById(R.id.create_player_triples_incrementer)).getAmount();
+//                int homeRuns = ((IncrementerDecrementer) findViewById(R.id.create_player_home_run_incrementer)).getAmount();
+//                int grd = ((IncrementerDecrementer) findViewById(R.id.create_player_ground_roll_doubles_incrementer)).getAmount();
+//                int gs = ((IncrementerDecrementer) findViewById(R.id.create_player_grand_slam_incrementer)).getAmount();
+//                int squantos = ((IncrementerDecrementer) findViewById(R.id.create_player_squanto_incrementer)).getAmount();
+//                int outs = ((IncrementerDecrementer) findViewById(R.id.create_player_out_incrementer)).getAmount();
+//                int rbis = ((IncrementerDecrementer) findViewById(R.id.create_player_rbi_incrementer)).getAmount();
+//                int hits = singles + doubles + triples + homeRuns + grd + gs + squantos;
 
 
-
-                GameHandler.addPlayer(new Player(name, number, hits, singles, doubles,
-                                                 triples, homeRuns, gs, grd, squantos, rbis, 0, outs));
+                GameHandler.addPlayer(new Player(name, number, 0, 0, 0,
+                                                 0, 0, 0, 0, 0, 0, 0, 0));
 
 
                 Intent intent = new Intent(self, CreateTeamActivity.class);
