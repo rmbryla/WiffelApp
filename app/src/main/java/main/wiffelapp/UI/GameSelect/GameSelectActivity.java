@@ -61,7 +61,7 @@ public class GameSelectActivity extends AppCompatActivity {
     private ArrayList<Game> makeGames(){
         ArrayList<Game> games = new ArrayList<>();
         for (int i = 0; i < 40; i++) {
-            games.add(new Game("Game: " + Integer.toString(i), "Home", "Away", 6, (int) (Math.random()*20), (int) (Math.random()*20), new ArrayList<Player>(), new ArrayList<Player>()));
+            games.add(new Game("Home", "Away", "Game: " + Integer.toString(i), 6, (int) (Math.random()*20), (int) (Math.random()*20), new ArrayList<Player>(), new ArrayList<Player>()));
         }
         return games;
     }
