@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">WiffelApp</string>
+
+    <string-array name="at_bat_play_select">
+        <item>--Select One--</item>
+        <item>Single</item>
+        <item>Double</item>
+        <item>Triple</item>
+        <item>Home Run</item>
+        <item>Grand Slam</item>
+        <item>Ground Roll Double</item>
+        <item>Squanto</item>
+        <item>Out</item>
+    </string-array>
+
 </resources>

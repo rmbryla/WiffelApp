@@ -147,6 +147,43 @@ public class Player {
     }
 
 
+    public void addSingle() {
+        this.singles += 1;
+    }
+
+    public void addDouble() {
+        this.doubles += 1;
+    }
+
+    public void addTriple(int triples) {
+        this.triples += 1;
+    }
+
+    public void addHomeRun(int homeRuns) {
+        this.homeRuns += 1;
+    }
+
+    public void addGrandSlam(int grandSlams) {
+        this.grandSlams += 1;
+    }
+
+    public void addSquanto(int squantos) {
+        this.squantos += 1;
+    }
+
+    public void addRbis(int rbis) {
+        this.rbis = rbis;
+    }
+
+    public void addWin(int wins) {
+        this.wins += 1;
+    }
+
+    public void addOuts(int outs) {
+        this.outs = outs;
+    }
+
+
     @Override
     public boolean equals(@Nullable Object obj) {
         if (obj == null) return false;

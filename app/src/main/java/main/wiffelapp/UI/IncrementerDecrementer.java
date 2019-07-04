@@ -98,11 +98,15 @@ public class IncrementerDecrementer extends LinearLayout {
         if (amount == minQunatity) {
             minusButton.setAlpha(0.3F);
             minusButton.setClickable(false);
+            plusButton.setAlpha(1.0F);
+            plusButton.setClickable(true);
         }
 
         if (amount == maxQuantity) {
             plusButton.setAlpha(0.3F);
             plusButton.setClickable(false);
+            minusButton.setAlpha(1.0F);
+            minusButton.setClickable(true);
         }
 
     }

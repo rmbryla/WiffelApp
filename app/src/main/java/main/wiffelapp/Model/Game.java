@@ -4,11 +4,17 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Game implements Serializable {
+    public enum TeamType {
+        HOME, AWAY
+    }
+    private TeamType battingTeam;
     private String homeName;
     private String awayName;
     private String name;
     private int innings;
     private int currInning;
+    private int currHomeBatterIndex;
+    private int currAwayBatterIndex;
     private Player atBat;
     private int homeScore;
     private int awayScore;
@@ -18,6 +24,10 @@ public class Game implements Serializable {
     public Game() {
         this.homeTeam = new ArrayList<>();
         this.awayTeam = new ArrayList<>();
+        this.currInning = 1;
+        this.currAwayBatterIndex = 0;
+        this.currHomeBatterIndex = 0;
+        this.battingTeam = TeamType.AWAY;
     }
 
     public Game(String homeName, String awayName, String name, int innings, int homeScore, int awayScore, ArrayList<Player> homeTeam, ArrayList<Player> awayTeam) {
@@ -31,8 +41,26 @@ public class Game implements Serializable {
         this.awayTeam = awayTeam;
         this.currInning = 1;
         this.atBat = (this.awayTeam.isEmpty()) ? null : awayTeam.get(0);
+        this.currAwayBatterIndex = 0;
+        this.currHomeBatterIndex = 0;
+        this.battingTeam = TeamType.AWAY;
     }
 
+    public Player getNextBatter() {
+        return (this.battingTeam.equals(TeamType.HOME)) ? getNextHomeBatter() : getNextAwayBatter();
+    }
+
+    public Player getNextHomeBatter() {
+        this.currHomeBatterIndex += 1;
+        this.currHomeBatterIndex = this.currHomeBatterIndex % homeTeam.size();
+        return homeTeam.get(currHomeBatterIndex);
+    }
+
+    public Player getNextAwayBatter() {
+        this.currAwayBatterIndex += 1;
+        this.currAwayBatterIndex = this.currAwayBatterIndex % awayTeam.size();
+        return awayTeam.get(currAwayBatterIndex);
+    }
 
     public void startGame() {
         this.atBat = this.awayTeam.get(0);
