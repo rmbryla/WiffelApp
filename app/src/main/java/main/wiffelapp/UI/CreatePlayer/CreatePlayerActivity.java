@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import main.wiffelapp.Model.Game;
 import main.wiffelapp.Model.Player;
 import main.wiffelapp.Observers.GameHandler;
 import main.wiffelapp.R;

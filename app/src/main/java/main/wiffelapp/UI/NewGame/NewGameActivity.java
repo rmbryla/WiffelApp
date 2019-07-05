@@ -49,7 +49,7 @@ public class NewGameActivity extends AppCompatActivity {
         findViewById(R.id.create_home_team_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameHandler.setCurrentTeam(GameHandler.TeamType.Home);
+                GameHandler.addingTo = Game.TeamType.HOME;
                 CharSequence teamName = ((TextView) findViewById(R.id.home_team_name_input)).getText();
 
                 try {
@@ -73,7 +73,7 @@ public class NewGameActivity extends AppCompatActivity {
         findViewById(R.id.create_away_team_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameHandler.setCurrentTeam(GameHandler.TeamType.Away);
+                GameHandler.addingTo = Game.TeamType.AWAY;
                 CharSequence teamName = ((TextView) findViewById(R.id.away_team_name_input)).getText();
 
                 try {

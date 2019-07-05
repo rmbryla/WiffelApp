@@ -31,9 +31,9 @@ public class CreateTeamActivity extends AppCompatActivity {
 
         ArrayList<Player> teamList = GameHandler.getCurrentTeam();
 
-        for (int i = 0; i < 20; i++) {
+        /**for (int i = 0; i < 20; i++) {
             teamList.add(new Player("Player: " + i, i));
-        }
+        }*/
 
         LinearLayout curentPlayerList = findViewById(R.id.create_batting_order_linear_layout);
 

@@ -98,6 +98,9 @@ public class IncrementerDecrementer extends LinearLayout {
         if (amount == minQunatity) {
             minusButton.setAlpha(0.3F);
             minusButton.setClickable(false);
+        }
+
+        if (amount < maxQuantity) {
             plusButton.setAlpha(1.0F);
             plusButton.setClickable(true);
         }
@@ -105,6 +108,9 @@ public class IncrementerDecrementer extends LinearLayout {
         if (amount == maxQuantity) {
             plusButton.setAlpha(0.3F);
             plusButton.setClickable(false);
+        }
+
+        if (amount > minQunatity) {
             minusButton.setAlpha(1.0F);
             minusButton.setClickable(true);
         }

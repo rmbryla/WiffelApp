@@ -66,6 +66,14 @@ public class Game implements Serializable {
         this.atBat = this.awayTeam.get(0);
     }
 
+    public void addScore(int toAdd) {
+        if (this.battingTeam.equals(TeamType.HOME)) this.homeScore += toAdd;
+        else this.awayScore += toAdd;
+    }
+
+    public ArrayList<Player> getBattingTeam() {
+        return (this.battingTeam.equals(TeamType.HOME)) ? homeTeam : awayTeam;
+    }
 
     public String getHomeName() {
         return homeName;

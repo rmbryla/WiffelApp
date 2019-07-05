@@ -49,14 +49,18 @@ public class AtBatActivity extends AppCompatActivity {
                 switch (item) {
                     case "Out":
                         ((IncrementerDecrementer) findViewById(R.id.at_bat_out_incrementer)).setAmount(1);
+                        ((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).setAmount(0);
+                        ((IncrementerDecrementer) findViewById(R.id.at_bat_rbi_incrementer)).setAmount(0);
                         break;
                     case "Home Run":
                         ((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).setAmount(1);
                         ((IncrementerDecrementer) findViewById(R.id.at_bat_rbi_incrementer)).setAmount(1);
+                        ((IncrementerDecrementer) findViewById(R.id.at_bat_out_incrementer)).setAmount(0);
                         break;
                     case "Grand Slam":
                         ((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).setAmount(4);
                         ((IncrementerDecrementer) findViewById(R.id.at_bat_rbi_incrementer)).setAmount(4);
+                        ((IncrementerDecrementer) findViewById(R.id.at_bat_out_incrementer)).setAmount(0);
                         break;
                     default:
                         ((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).setAmount(0);
@@ -74,7 +78,37 @@ public class AtBatActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Player curr = GameHandler.getAtBat();
-                //TODO switch statement for each possible play and what to increment
+                switch(((Spinner) findViewById(R.id.at_bat_play_spinner)).getSelectedItem().toString()) {
+                    case "Single":
+                        curr.addSingle();
+                        break;
+                    case "Double":
+                        curr.addDouble();
+                        break;
+                    case "Triple":
+                        curr.addTriple();
+                        break;
+                    case "Home Run":
+                        curr.addHomeRun();
+                        break;
+                    case "Grand Slam":
+                        curr.addGrandSlam();
+                        break;
+                    case "Ground Roll Double":
+                        curr.addGroundRollDouble();
+                        break;
+                    case "SQUANTO":
+                        curr.addSquanto();
+                        break;
+                    case "Out":
+                        curr.addOut();
+                        break;
+                    default:
+                        return;
+                }
+
+                curr.addRbis(((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).getAmount());
+
 
                 curr = GameHandler.getGame().getNextBatter();
 

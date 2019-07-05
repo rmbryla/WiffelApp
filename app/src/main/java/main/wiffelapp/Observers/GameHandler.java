@@ -15,11 +15,7 @@ import main.wiffelapp.Model.Player;
 
 public class GameHandler {
     private static Game game;
-    private static TeamType currentTeam = TeamType.Home;
-    public enum TeamType {
-        Home, Away;
-    }
-
+    public static Game.TeamType addingTo;
 
     public static void saveGame() {
         try {
@@ -40,6 +36,10 @@ public class GameHandler {
         } catch (IOException | ClassNotFoundException e) {
             return false;
         }
+    }
+
+    public static String getCurrentTeamName() {
+        return (addingTo.equals(Game.TeamType.HOME)) ? game.getHomeName() : game.getAwayName();
     }
 
     public static void startGame() {
@@ -78,6 +78,14 @@ public class GameHandler {
         game.setHomeScore(awayScore);
     }
 
+    public static void addHomeScore(int toAdd) {
+        game.setHomeScore(game.getHomeScore() + toAdd);
+    }
+
+    public static void addAwayScore(int toAdd) {
+        game.setAwayScore(game.getAwayScore() + toAdd);
+    }
+
     public static void setHomeTeam(ArrayList<Player> homeTeam) {
         game.setHomeTeam(homeTeam);
     }
@@ -86,12 +94,9 @@ public class GameHandler {
         game.setAwayTeam(awayTeam);
     }
 
-    public static void setCurrentTeam(TeamType currentTeam) {
-        GameHandler.currentTeam = currentTeam;
-    }
 
     public static void addPlayer(Player p) {
-        if (currentTeam.equals(TeamType.Home)) {
+        if (addingTo.equals(Game.TeamType.HOME)) {
             game.addHomePlayer(p);
         } else {
             game.addAwayPlayer(p);
@@ -99,7 +104,7 @@ public class GameHandler {
     }
 
     public static ArrayList<Player> getCurrentTeam() {
-        return (currentTeam.equals(TeamType.Home) ? game.getHomeTeam() : game.getAwayTeam());
+        return (addingTo.equals(Game.TeamType.HOME)) ? game.getHomeTeam() : game.getAwayTeam();
     }
 
     public static ArrayList<Player> getHomeTeam() {
@@ -122,9 +127,6 @@ public class GameHandler {
         return game.getAwayName();
     }
 
-    public static String getCurrentTeamName() {
-        return (currentTeam.equals(TeamType.Home) ? game.getHomeName() : game.getAwayName());
-    }
 
     public static int getInnings() {
         return game.getInnings();

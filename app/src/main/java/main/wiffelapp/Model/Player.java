@@ -155,19 +155,23 @@ public class Player {
         this.doubles += 1;
     }
 
-    public void addTriple(int triples) {
+    public void addTriple() {
         this.triples += 1;
     }
 
-    public void addHomeRun(int homeRuns) {
+    public void addHomeRun() {
         this.homeRuns += 1;
     }
 
-    public void addGrandSlam(int grandSlams) {
+    public void addGrandSlam() {
         this.grandSlams += 1;
     }
 
-    public void addSquanto(int squantos) {
+    public void addGroundRollDouble() {
+        this.groundRollDoubles += 1;
+    }
+
+    public void addSquanto() {
         this.squantos += 1;
     }
 
@@ -175,12 +179,12 @@ public class Player {
         this.rbis = rbis;
     }
 
-    public void addWin(int wins) {
+    public void addWin() {
         this.wins += 1;
     }
 
-    public void addOuts(int outs) {
-        this.outs = outs;
+    public void addOut() {
+        this.outs += 1;
     }
 
 
