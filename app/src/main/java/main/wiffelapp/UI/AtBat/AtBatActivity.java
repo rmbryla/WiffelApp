@@ -1,6 +1,7 @@
 package main.wiffelapp.UI.AtBat;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import main.wiffelapp.Model.Player;
 import main.wiffelapp.Observers.GameHandler;
 import main.wiffelapp.R;
+import main.wiffelapp.UI.GameStats.GameStatsActivity;
 import main.wiffelapp.UI.IncrementerDecrementer;
 
 public class AtBatActivity extends AppCompatActivity {
@@ -107,8 +109,10 @@ public class AtBatActivity extends AppCompatActivity {
                         return;
                 }
 
-                curr.addRbis(((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).getAmount());
+                curr.addRbis(((IncrementerDecrementer) findViewById(R.id.at_bat_rbi_incrementer)).getAmount());
 
+                GameHandler.getGame().addOuts(((IncrementerDecrementer) findViewById(R.id.at_bat_out_incrementer)).getAmount());
+                GameHandler.getGame().addScore(((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).getAmount());
 
                 curr = GameHandler.getGame().getNextBatter();
 
@@ -133,6 +137,17 @@ public class AtBatActivity extends AppCompatActivity {
                 ((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).setAmount(0);
                 ((IncrementerDecrementer) findViewById(R.id.at_bat_rbi_incrementer)).setAmount(0);
                 ((IncrementerDecrementer) findViewById(R.id.at_bat_out_incrementer)).setAmount(0);
+            }
+        });
+
+        final AppCompatActivity self = this;
+
+        findViewById(R.id.at_bat_game_stats_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(self, GameStatsActivity.class);
+
+                startActivity(intent);
             }
         });
 

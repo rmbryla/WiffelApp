@@ -5,7 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
-        android:id="@+id/player_name_create_team_screen"
+        android:id="@+id/player_summary_card_player_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="@dimen/font_size_20"
@@ -18,7 +18,7 @@
         />
 
     <TextView
-        android:id="@+id/player_number_create_team_screen"
+        android:id="@+id/player_summary_card_player_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="@dimen/common_dimen_16"
@@ -36,6 +36,6 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
         android:layout_marginTop="@dimen/common_dimen_16"
-        app:layout_constraintTop_toBottomOf="@id/player_number_create_team_screen"/>
+        app:layout_constraintTop_toBottomOf="@id/player_summary_card_player_number"/>
 
 </android.support.constraint.ConstraintLayout>
