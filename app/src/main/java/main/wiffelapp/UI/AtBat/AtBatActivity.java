@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -43,6 +44,59 @@ public class AtBatActivity extends AppCompatActivity {
         ((IncrementerDecrementer) findViewById(R.id.at_bat_rbi_incrementer)).setMaxQuantity(4);
         ((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).setMaxQuantity(4);
         ((IncrementerDecrementer) findViewById(R.id.at_bat_out_incrementer)).setMaxQuantity(3);
+
+        final IncrementerDecrementer rbi_incrementer = findViewById(R.id.at_bat_rbi_incrementer);
+
+        final IncrementerDecrementer run_incrementer = findViewById(R.id.at_bat_run_incrementer);
+
+
+        run_incrementer.findViewById(R.id.decrement_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Button plusButton = run_incrementer.findViewById(R.id.increment_button);
+                Button minusButton = run_incrementer.findViewById(R.id.decrement_button);
+                int amount = run_incrementer.getAmount();
+                if (amount - 1 > run_incrementer.getMinQunatity()) {
+                    run_incrementer.getText().setText(Integer.toString(amount - 1));
+                }
+                else {
+                    minusButton.setAlpha(0.3F);
+                    minusButton.setClickable(false);
+                    run_incrementer.getText().setText(Integer.toString(run_incrementer.getMinQunatity()));
+                }
+
+                if (run_incrementer.getAmount() < rbi_incrementer.getAmount()) {
+                    findViewById(R.id.at_bat_rbi_incrementer).findViewById(R.id.decrement_button).callOnClick();
+                }
+
+                plusButton.setAlpha(1.0F);
+                plusButton.setClickable(true);
+            }
+        });
+
+        (rbi_incrementer.findViewById(R.id.increment_button)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Button plusButton = rbi_incrementer.findViewById(R.id.increment_button);
+                Button minusButton = rbi_incrementer.findViewById(R.id.decrement_button);
+                int amount = rbi_incrementer.getAmount();
+                if (amount + 1 < rbi_incrementer.getMaxQuantity()) {
+                    rbi_incrementer.getText().setText(Integer.toString(amount + 1));
+                }
+                else {
+                    plusButton.setAlpha(0.3F);
+                    plusButton.setClickable(false);
+                    rbi_incrementer.getText().setText(Integer.toString(rbi_incrementer.getMaxQuantity()));
+                }
+
+                if (run_incrementer.getAmount() < rbi_incrementer.getAmount()) {
+                    findViewById(R.id.at_bat_run_incrementer).findViewById(R.id.increment_button).callOnClick();
+                }
+
+                minusButton.setAlpha(1.0F);
+                minusButton.setClickable(true);
+            }
+        });
 
         ((Spinner) findViewById(R.id.at_bat_play_spinner)).setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -99,7 +153,7 @@ public class AtBatActivity extends AppCompatActivity {
                     case "Ground Roll Double":
                         curr.addGroundRollDouble();
                         break;
-                    case "SQUANTO":
+                    case "Squanto":
                         curr.addSquanto();
                         break;
                     case "Out":
@@ -122,6 +176,8 @@ public class AtBatActivity extends AppCompatActivity {
                 ((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).setAmount(0);
                 ((IncrementerDecrementer) findViewById(R.id.at_bat_rbi_incrementer)).setAmount(0);
                 ((IncrementerDecrementer) findViewById(R.id.at_bat_out_incrementer)).setAmount(0);
+
+                ((Spinner) findViewById(R.id.at_bat_play_spinner)).setSelection(0);
             }
         });
 
@@ -137,6 +193,8 @@ public class AtBatActivity extends AppCompatActivity {
                 ((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).setAmount(0);
                 ((IncrementerDecrementer) findViewById(R.id.at_bat_rbi_incrementer)).setAmount(0);
                 ((IncrementerDecrementer) findViewById(R.id.at_bat_out_incrementer)).setAmount(0);
+
+                ((Spinner) findViewById(R.id.at_bat_play_spinner)).setSelection(0);
             }
         });
 

@@ -116,4 +116,16 @@ public class IncrementerDecrementer extends LinearLayout {
         }
 
     }
+
+    public EditText getText() {
+        return text;
+    }
+
+    public int getMinQunatity() {
+        return minQunatity;
+    }
+
+    public int getMaxQuantity() {
+        return maxQuantity;
+    }
 }

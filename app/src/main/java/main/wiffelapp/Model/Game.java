@@ -54,12 +54,14 @@ public class Game implements Serializable {
     public Player getNextHomeBatter() {
         this.currHomeBatterIndex += 1;
         this.currHomeBatterIndex = this.currHomeBatterIndex % homeTeam.size();
+        this.atBat = this.homeTeam.get(this.currHomeBatterIndex);
         return homeTeam.get(currHomeBatterIndex);
     }
 
     public Player getNextAwayBatter() {
         this.currAwayBatterIndex += 1;
         this.currAwayBatterIndex = this.currAwayBatterIndex % awayTeam.size();
+        this.atBat = this.awayTeam.get(this.currAwayBatterIndex);
         return awayTeam.get(currAwayBatterIndex);
     }
 
