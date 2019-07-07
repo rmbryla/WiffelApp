@@ -12,6 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import main.wiffelapp.R;
 import main.wiffelapp.UI.IncrementerDecrementer;
 
@@ -21,6 +25,7 @@ public class CreatePlayerInfoWidget extends ConstraintLayout {
     private Spinner categorySelecor;
     private IncrementerDecrementer stepper;
     private LinearLayout allInfo;
+    private ArrayAdapter adapter;
 
     public CreatePlayerInfoWidget(final Context context, AttributeSet attrs) {
         super(context, attrs, 0);
@@ -28,8 +33,14 @@ public class CreatePlayerInfoWidget extends ConstraintLayout {
         View.inflate(context, R.layout.create_player_info_box, this);
 
         categorySelecor = (Spinner) findViewById(R.id.create_player_info_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(context,
-                R.array.player_info_options, android.R.layout.simple_spinner_item);
+
+        ArrayList<CharSequence> spinnerItems = new ArrayList<>();
+
+        for (CharSequence item : getResources().getStringArray(R.array.player_info_options)){
+            spinnerItems.add(item);
+        }
+
+        adapter = new ArrayAdapter(context, android.R.layout.simple_spinner_item, spinnerItems);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         categorySelecor.setAdapter(adapter);
 
@@ -46,6 +57,8 @@ public class CreatePlayerInfoWidget extends ConstraintLayout {
                 completedInfo.stepper.setAmount(stepper.getAmount());
 
                 allInfo.addView(completedInfo);
+                adapter.remove(categorySelecor.getSelectedItem());
+                adapter.notifyDataSetChanged();
             }
         });
     }
@@ -53,4 +66,5 @@ public class CreatePlayerInfoWidget extends ConstraintLayout {
     public void setAllInfo(LinearLayout allInfo) {
         this.allInfo = allInfo;
     }
+
 }
