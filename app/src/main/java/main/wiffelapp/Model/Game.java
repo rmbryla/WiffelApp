@@ -7,12 +7,16 @@ public class Game implements Serializable {
     public enum TeamType {
         HOME, AWAY
     }
+    public enum InningType {
+        TOP, BOTTOM
+    }
     private TeamType battingTeam;
     private String homeName;
     private String awayName;
     private String name;
     private int innings;
     private int currInning;
+    private InningType currInningType;
     private int currOuts;
     private Player atBat;
     private int currHomeBatterIndex;
@@ -76,8 +80,12 @@ public class Game implements Serializable {
 
     public void addOuts(int outs) {
         this.currOuts += outs;
-        if (outs >= 3) {
-            //TODO switch inning and batting team
+        if (this.currOuts >= 3) {
+            battingTeam = (battingTeam.equals(TeamType.HOME)) ? TeamType.AWAY : TeamType.HOME;
+            atBat = (battingTeam.equals(TeamType.HOME)) ? homeTeam.get(currHomeBatterIndex) : awayTeam.get(currAwayBatterIndex);
+            this.currOuts = 0;
+            this.currInningType = (this.currInningType.equals(InningType.TOP)) ? InningType.BOTTOM : InningType.TOP;
+            if (this.currInningType.equals(InningType.TOP)) this.currInning += 1;
         }
     }
 

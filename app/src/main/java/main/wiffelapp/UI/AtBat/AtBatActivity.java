@@ -177,6 +177,11 @@ public class AtBatActivity extends AppCompatActivity {
                 ((IncrementerDecrementer) findViewById(R.id.at_bat_rbi_incrementer)).setAmount(0);
                 ((IncrementerDecrementer) findViewById(R.id.at_bat_out_incrementer)).setAmount(0);
 
+                int maxOuts = 3 - GameHandler.getGame().getCurrOuts();
+
+                ((IncrementerDecrementer) findViewById(R.id.at_bat_out_incrementer)).setMaxQuantity(maxOuts);
+
+
                 ((Spinner) findViewById(R.id.at_bat_play_spinner)).setSelection(0);
             }
         });
