@@ -59,6 +59,10 @@ public class Player {
                 this.homeRuns*4 + this.grandSlams*4 + this.groundRollDoubles*2 + this.squantos;
     }
 
+    public int getGroundRollDoubles() {
+        return groundRollDoubles;
+    }
+
     public int getAtBats() {
         return -1;
     }

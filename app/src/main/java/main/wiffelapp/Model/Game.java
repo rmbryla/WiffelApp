@@ -13,9 +13,10 @@ public class Game implements Serializable {
     private String name;
     private int innings;
     private int currInning;
+    private int currOuts;
+    private Player atBat;
     private int currHomeBatterIndex;
     private int currAwayBatterIndex;
-    private Player atBat;
     private int homeScore;
     private int awayScore;
     private ArrayList<Player> homeTeam;
@@ -53,12 +54,14 @@ public class Game implements Serializable {
     public Player getNextHomeBatter() {
         this.currHomeBatterIndex += 1;
         this.currHomeBatterIndex = this.currHomeBatterIndex % homeTeam.size();
+        this.atBat = this.homeTeam.get(this.currHomeBatterIndex);
         return homeTeam.get(currHomeBatterIndex);
     }
 
     public Player getNextAwayBatter() {
         this.currAwayBatterIndex += 1;
         this.currAwayBatterIndex = this.currAwayBatterIndex % awayTeam.size();
+        this.atBat = this.awayTeam.get(this.currAwayBatterIndex);
         return awayTeam.get(currAwayBatterIndex);
     }
 
@@ -71,8 +74,27 @@ public class Game implements Serializable {
         else this.awayScore += toAdd;
     }
 
+    public void addOuts(int outs) {
+        this.currOuts += outs;
+        if (outs >= 3) {
+            //TODO switch inning and batting team
+        }
+    }
+
     public ArrayList<Player> getBattingTeam() {
         return (this.battingTeam.equals(TeamType.HOME)) ? homeTeam : awayTeam;
+    }
+
+    public TeamType getBattingTeamType() {
+        return battingTeam;
+    }
+
+    public int getCurrOuts() {
+        return currOuts;
+    }
+
+    public int getCurrInning() {
+        return currInning;
     }
 
     public String getHomeName() {

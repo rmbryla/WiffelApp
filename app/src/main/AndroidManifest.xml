@@ -29,6 +29,8 @@
         <activity android:name=".UI.ConfirmGame.ConfirmGameActivity"></activity>
 
         <activity android:name=".UI.AtBat.AtBatActivity"></activity>
+
+        <activity android:name=".UI.GameStats.GameStatsActivity"></activity>
     </application>
 
 </manifest>

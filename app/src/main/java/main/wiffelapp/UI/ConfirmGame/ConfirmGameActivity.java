@@ -43,8 +43,8 @@ public class ConfirmGameActivity extends AppCompatActivity {
         for (Player p : homeTeamList) {
             ConstraintLayout playerView = (ConstraintLayout) getLayoutInflater().inflate(R.layout.player_summary_card, null);
 
-            ((TextView) playerView.findViewById(R.id.player_name_create_team_screen)).setText(p.NAME);
-            ((TextView) playerView.findViewById(R.id.player_number_create_team_screen)).setText(Integer.toString(p.PLAYER_NUMBER));
+            ((TextView) playerView.findViewById(R.id.player_summary_card_player_name)).setText(p.NAME);
+            ((TextView) playerView.findViewById(R.id.player_summary_card_player_number)).setText(Integer.toString(p.PLAYER_NUMBER));
 
             homeTeamLinearLayout.addView(playerView);
         }
@@ -52,8 +52,8 @@ public class ConfirmGameActivity extends AppCompatActivity {
         for (Player p : awayTeamList) {
             ConstraintLayout playerView = (ConstraintLayout) getLayoutInflater().inflate(R.layout.player_summary_card, null);
 
-            ((TextView) playerView.findViewById(R.id.player_name_create_team_screen)).setText(p.NAME);
-            ((TextView) playerView.findViewById(R.id.player_number_create_team_screen)).setText(Integer.toString(p.PLAYER_NUMBER));
+            ((TextView) playerView.findViewById(R.id.player_summary_card_player_name)).setText(p.NAME);
+            ((TextView) playerView.findViewById(R.id.player_summary_card_player_number)).setText(Integer.toString(p.PLAYER_NUMBER));
 
             awayTeamLinearLayout.addView(playerView);
         }

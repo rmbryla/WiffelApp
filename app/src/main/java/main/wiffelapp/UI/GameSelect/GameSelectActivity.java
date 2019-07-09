@@ -14,6 +14,7 @@ import java.util.ArrayList;
 
 import main.wiffelapp.Model.Game;
 import main.wiffelapp.Model.Player;
+import main.wiffelapp.Observers.GameHandler;
 import main.wiffelapp.R;
 import main.wiffelapp.UI.NewGame.NewGameActivity;
 import main.wiffelapp.UI.signIn.SignInActivity;

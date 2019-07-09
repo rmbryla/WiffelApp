@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -31,9 +30,9 @@ public class CreateTeamActivity extends AppCompatActivity {
 
         ArrayList<Player> teamList = GameHandler.getCurrentTeam();
 
-        /**for (int i = 0; i < 20; i++) {
+        for (int i = 0; i < 20; i++) {
             teamList.add(new Player("Player: " + i, i));
-        }*/
+        }
 
         LinearLayout curentPlayerList = findViewById(R.id.create_batting_order_linear_layout);
 
@@ -49,8 +48,8 @@ public class CreateTeamActivity extends AppCompatActivity {
 
         for (Player p : teamList) {
             ConstraintLayout playerView = (ConstraintLayout) getLayoutInflater().inflate(R.layout.player_summary_card, null);
-            ((TextView) playerView.findViewById(R.id.player_name_create_team_screen)).setText(p.NAME);
-            ((TextView) playerView.findViewById(R.id.player_number_create_team_screen)).setText(Integer.toString( p.PLAYER_NUMBER));
+            ((TextView) playerView.findViewById(R.id.player_summary_card_player_name)).setText(p.NAME);
+            ((TextView) playerView.findViewById(R.id.player_summary_card_player_number)).setText(Integer.toString( p.PLAYER_NUMBER));
             curentPlayerList.addView(playerView);
         }
 

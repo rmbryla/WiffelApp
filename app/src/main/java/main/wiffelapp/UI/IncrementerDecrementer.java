@@ -2,7 +2,6 @@ package main.wiffelapp.UI;
 
 
 import android.content.Context;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -17,24 +16,12 @@ public class IncrementerDecrementer extends LinearLayout {
     Button plusButton;
     Button minusButton;
     EditText text;
-    Context context;
     int minQunatity = 0;
     int maxQuantity = Integer.MAX_VALUE;
 
-    public IncrementerDecrementer(Context context){
-        super(context);
-        this.context = context;
-        viewSetup();
-    }
-
     public IncrementerDecrementer(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
-        this.context = context;
-        viewSetup();
 
-    }
-
-    private void viewSetup(){
         View.inflate(context, R.layout.incrementer_decrementer, this);
 
         plusButton = findViewById(R.id.increment_button);
@@ -68,7 +55,7 @@ public class IncrementerDecrementer extends LinearLayout {
 
                         minusButton.setAlpha(1.0F);
                         minusButton.setClickable(true);
-                    }
+                        }
                 }
         );
 
@@ -130,8 +117,15 @@ public class IncrementerDecrementer extends LinearLayout {
 
     }
 
-    public void setMargins(int left, int top, int right, int bottom){
-        LinearLayout.LayoutParams newParams = new LinearLayout.LayoutParams(ConstraintLayout.LayoutParams.WRAP_CONTENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
-        newParams.setMargins(left,top,right,bottom);
+    public EditText getText() {
+        return text;
+    }
+
+    public int getMinQunatity() {
+        return minQunatity;
+    }
+
+    public int getMaxQuantity() {
+        return maxQuantity;
     }
 }
