@@ -13,4 +13,16 @@
         <item>Out</item>
     </string-array>
 
+
+    <string-array name="player_info_options">
+        <item>Singles</item>
+        <item>Doubles</item>
+        <item>Triples</item>
+        <item>Home Runs</item>
+        <item>Grand Slams</item>
+        <item>Ground Roll Doubles</item>
+        <item>SQUANTO</item>
+        <item>Outs</item>
+        <item>RBIs</item>
+    </string-array>
 </resources>

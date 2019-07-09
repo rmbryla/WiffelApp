@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import main.wiffelapp.Model.Game;
+import java.util.HashMap;
+
 import main.wiffelapp.Model.Player;
 import main.wiffelapp.Observers.GameHandler;
 import main.wiffelapp.R;
@@ -24,6 +26,9 @@ public class CreatePlayerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_player);
 
         final AppCompatActivity self = this;
+        final LinearLayout allInfo = (LinearLayout) findViewById(R.id.create_player_info);
+
+        ((CreatePlayerInfoWidget) findViewById(R.id.create_player_current_info)).setAllInfo(allInfo);
 
         findViewById(R.id.create_player_done_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,22 +54,7 @@ public class CreatePlayerActivity extends AppCompatActivity {
                     return;
                 }
 
-                int singles = ((IncrementerDecrementer) findViewById(R.id.create_player_singles_incrementer)).getAmount();
-                int doubles = ((IncrementerDecrementer) findViewById(R.id.create_player_doubles_incrementer)).getAmount();
-                int triples = ((IncrementerDecrementer) findViewById(R.id.create_player_triples_incrementer)).getAmount();
-                int homeRuns = ((IncrementerDecrementer) findViewById(R.id.create_player_home_run_incrementer)).getAmount();
-                int grd = ((IncrementerDecrementer) findViewById(R.id.create_player_ground_roll_doubles_incrementer)).getAmount();
-                int gs = ((IncrementerDecrementer) findViewById(R.id.create_player_grand_slam_incrementer)).getAmount();
-                int squantos = ((IncrementerDecrementer) findViewById(R.id.create_player_squanto_incrementer)).getAmount();
-                int outs = ((IncrementerDecrementer) findViewById(R.id.create_player_out_incrementer)).getAmount();
-                int rbis = ((IncrementerDecrementer) findViewById(R.id.create_player_rbi_incrementer)).getAmount();
-                int hits = singles + doubles + triples + homeRuns + grd + gs + squantos;
-
-
-
-                GameHandler.addPlayer(new Player(name, number, hits, singles, doubles,
-                                                 triples, homeRuns, gs, grd, squantos, rbis, 0, outs));
-
+                createPlayer(name, number, allInfo);
 
                 Intent intent = new Intent(self, CreateTeamActivity.class);
 
@@ -72,5 +62,22 @@ public class CreatePlayerActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void createPlayer(String name, int number, LinearLayout allInfo){
+        HashMap<String, Integer> infoValueMap = new HashMap<>();
+
+        for(CharSequence category : getResources().getStringArray(R.array.player_info_options)){
+            infoValueMap.put(category.toString(), 0);
+        }
+
+        for(int i = 1 ; i < allInfo.getChildCount() ; i++){
+            CreatePlayerCompletedInfoWidget info = (CreatePlayerCompletedInfoWidget) allInfo.getChildAt(i);
+            infoValueMap.put(info.infoText.getText().toString(), info.stepper.getAmount());
+        }
+
+        GameHandler.addPlayer(new Player(name, number, infoValueMap.get("Singles"), infoValueMap.get("Doubles"),
+                infoValueMap.get("Triples"), infoValueMap.get("Home Runs"), infoValueMap.get("Grand Slams"), infoValueMap.get("Ground Roll Doubles"),
+                infoValueMap.get("SQUANTO"), infoValueMap.get("RBIs"), 0, infoValueMap.get("Outs")));
     }
 }
