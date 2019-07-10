@@ -59,6 +59,13 @@ public class CreatePlayerInfoWidget extends ConstraintLayout {
                 allInfo.addView(completedInfo);
                 adapter.remove(categorySelecor.getSelectedItem());
                 adapter.notifyDataSetChanged();
+
+                stepper.setAmount(0);
+
+                if (adapter.isEmpty()) {
+                    doneButton.setClickable(false);
+                    doneButton.setAlpha(0.3F);
+                }
             }
         });
     }

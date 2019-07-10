@@ -4,6 +4,14 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <include
+        android:id="@+id/at_bat_score_board"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        layout="@layout/score_board_widget"/>
 
     <Spinner
         android:id="@+id/at_bat_play_spinner"
@@ -139,7 +147,7 @@
         android:textSize="@dimen/font_size_20"
 
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/at_bat_top_of_screen"
+        app:layout_constraintTop_toBottomOf="@id/at_bat_score_board"
         />
 
     <TextView
@@ -152,7 +160,7 @@
         android:textSize="@dimen/font_size_20"
 
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/at_bat_top_of_screen"
+        app:layout_constraintTop_toBottomOf="@id/at_bat_score_board"
 
         />
 
@@ -162,7 +170,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="@dimen/common_dimen_16"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/at_bat_score_board">
     </View>
 
     <Button
@@ -178,18 +186,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <Button
-        android:id="@+id/at_bat_game_stats_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/common_dimen_16"
-        android:layout_marginBottom="@dimen/common_dimen_16"
-        android:textSize="@dimen/font_size_16"
-        android:text="Stats"
-        android:textAllCaps="false"
+    <!--<Button-->
+        <!--android:id="@+id/at_bat_game_stats_button"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginStart="@dimen/common_dimen_16"-->
+        <!--android:layout_marginBottom="@dimen/common_dimen_16"-->
+        <!--android:textSize="@dimen/font_size_16"-->
+        <!--android:text="Stats"-->
+        <!--android:textAllCaps="false"-->
 
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        <!--app:layout_constraintLeft_toLeftOf="parent"-->
+        <!--app:layout_constraintBottom_toBottomOf="parent" />-->
 
     <Button
         android:id="@+id/at_bat_skip_batter_button"

@@ -10,10 +10,12 @@ import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import main.wiffelapp.Model.Game;
 import main.wiffelapp.Model.Player;
 import main.wiffelapp.Observers.GameHandler;
 import main.wiffelapp.R;
@@ -28,6 +30,8 @@ public class AtBatActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_at_bat);
 
+        final Game game = GameHandler.getGame();
+
         Player atBat = GameHandler.getAtBat();
 
         ((TextView) findViewById(R.id.at_bat_player_name)).setText(atBat.NAME);
@@ -40,6 +44,14 @@ public class AtBatActivity extends AppCompatActivity {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spinner.setAdapter(arrayAdapter);
+
+
+        final GridLayout scoreBoard = findViewById(R.id.at_bat_score_board);
+        ((TextView) scoreBoard.findViewById(R.id.score_board_home_score)).setText(Integer.toString(game.getHomeScore()));
+        ((TextView) scoreBoard.findViewById(R.id.score_board_away_score)).setText(Integer.toString(game.getAwayScore()));
+        ((TextView) scoreBoard.findViewById(R.id.score_board_inning)).setText(Integer.toString(game.getCurrInning()));
+        ((TextView) scoreBoard.findViewById(R.id.score_board_outs)).setText(Integer.toString(game.getCurrOuts()));
+
 
         ((IncrementerDecrementer) findViewById(R.id.at_bat_rbi_incrementer)).setMaxQuantity(4);
         ((IncrementerDecrementer) findViewById(R.id.at_bat_run_incrementer)).setMaxQuantity(4);
@@ -183,6 +195,11 @@ public class AtBatActivity extends AppCompatActivity {
 
 
                 ((Spinner) findViewById(R.id.at_bat_play_spinner)).setSelection(0);
+
+                ((TextView) scoreBoard.findViewById(R.id.score_board_home_score)).setText(Integer.toString(game.getHomeScore()));
+                ((TextView) scoreBoard.findViewById(R.id.score_board_away_score)).setText(Integer.toString(game.getAwayScore()));
+                ((TextView) scoreBoard.findViewById(R.id.score_board_inning)).setText(Integer.toString(game.getCurrInning()));
+                ((TextView) scoreBoard.findViewById(R.id.score_board_outs)).setText(Integer.toString(game.getCurrOuts()));
             }
         });
 
@@ -205,7 +222,7 @@ public class AtBatActivity extends AppCompatActivity {
 
         final AppCompatActivity self = this;
 
-        findViewById(R.id.at_bat_game_stats_button).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.at_bat_score_board).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(self, GameStatsActivity.class);
