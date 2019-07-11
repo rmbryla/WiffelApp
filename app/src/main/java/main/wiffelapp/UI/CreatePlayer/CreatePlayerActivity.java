@@ -29,6 +29,7 @@ public class CreatePlayerActivity extends AppCompatActivity {
         final LinearLayout allInfo = (LinearLayout) findViewById(R.id.create_player_info);
 
         ((CreatePlayerInfoWidget) findViewById(R.id.create_player_current_info)).setAllInfo(allInfo);
+        ((CreatePlayerInfoWidget) findViewById(R.id.create_player_current_info)).setActivity(this);
 
         findViewById(R.id.create_player_done_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,5 +80,9 @@ public class CreatePlayerActivity extends AppCompatActivity {
         GameHandler.addPlayer(new Player(name, number, infoValueMap.get("Singles"), infoValueMap.get("Doubles"),
                 infoValueMap.get("Triples"), infoValueMap.get("Home Runs"), infoValueMap.get("Grand Slams"), infoValueMap.get("Ground Roll Doubles"),
                 infoValueMap.get("SQUANTO"), infoValueMap.get("RBIs"), 0, infoValueMap.get("Outs")));
+    }
+
+    public void removeWidget(){
+        ((CreatePlayerInfoWidget) findViewById(R.id.create_player_current_info)).setVisibility(View.GONE);
     }
 }

@@ -1,5 +1,6 @@
 package main.wiffelapp.UI.CreatePlayer;
 
+import android.app.Activity;
 import android.content.Context;
 import android.support.constraint.ConstraintLayout;
 import android.support.constraint.ConstraintSet;
@@ -26,6 +27,7 @@ public class CreatePlayerInfoWidget extends ConstraintLayout {
     private IncrementerDecrementer stepper;
     private LinearLayout allInfo;
     private ArrayAdapter adapter;
+    private CreatePlayerActivity activity;
 
     public CreatePlayerInfoWidget(final Context context, AttributeSet attrs) {
         super(context, attrs, 0);
@@ -63,8 +65,7 @@ public class CreatePlayerInfoWidget extends ConstraintLayout {
                 stepper.setAmount(0);
 
                 if (adapter.isEmpty()) {
-                    doneButton.setClickable(false);
-                    doneButton.setAlpha(0.3F);
+                    activity.removeWidget();
                 }
             }
         });
@@ -73,5 +74,7 @@ public class CreatePlayerInfoWidget extends ConstraintLayout {
     public void setAllInfo(LinearLayout allInfo) {
         this.allInfo = allInfo;
     }
+
+    public void setActivity(CreatePlayerActivity activity) {this.activity = activity;}
 
 }
