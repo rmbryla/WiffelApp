@@ -89,6 +89,11 @@ public class IncrementerDecrementer extends LinearLayout {
         this.maxQuantity = maxQuantity;
     }
 
+    public void setMinQunatity(int minQunatity) {
+        if (minQunatity > this.maxQuantity) return;
+        this.minQunatity = minQunatity;
+    }
+
     public void setAmount(int amount) {
 
         try {

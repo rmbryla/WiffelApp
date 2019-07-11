@@ -51,6 +51,7 @@ public class NewGameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 GameHandler.addingTo = Game.TeamType.HOME;
                 CharSequence teamName = ((TextView) findViewById(R.id.home_team_name_input)).getText();
+                CharSequence awayTeamName = ((TextView) findViewById(R.id.away_team_name_input)).getText();
 
                 try {
                     GameHandler.getCurrentTeam();
@@ -64,6 +65,8 @@ public class NewGameActivity extends AppCompatActivity {
 
                 GameHandler.setHomeName(teamName.toString());
 
+                GameHandler.setAwayName(awayTeamName.toString());
+
                 Intent intent = new Intent(self, CreateTeamActivity.class);
 
                 startActivity(intent);
@@ -75,6 +78,7 @@ public class NewGameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 GameHandler.addingTo = Game.TeamType.AWAY;
                 CharSequence teamName = ((TextView) findViewById(R.id.away_team_name_input)).getText();
+                CharSequence homeTeamName = ((TextView) findViewById(R.id.home_team_name_input)).getText();
 
                 try {
                     GameHandler.getCurrentTeam();
@@ -87,6 +91,8 @@ public class NewGameActivity extends AppCompatActivity {
                 GameHandler.setName(((TextView) findViewById(R.id.new_game_game_name_input)).getText().toString());
 
                 GameHandler.setAwayName(teamName.toString());
+
+                GameHandler.setHomeName(homeTeamName.toString());
 
                 Intent intent = new Intent(self, CreateTeamActivity.class);
 

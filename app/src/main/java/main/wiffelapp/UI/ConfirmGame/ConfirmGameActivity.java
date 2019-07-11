@@ -1,6 +1,7 @@
 package main.wiffelapp.UI.ConfirmGame;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.constraint.ConstraintLayout;
@@ -64,6 +65,24 @@ public class ConfirmGameActivity extends AppCompatActivity {
         findViewById(R.id.confirm_game_start_game_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                String homeTeamName = ((EditText) findViewById(R.id.confirm_game_home_team_name)).getText().toString();
+                if (homeTeamName.equals("")) {
+                    ((EditText) findViewById(R.id.confirm_game_home_team_name)).setHintTextColor(Color.RED);
+                    return;
+                }
+                String awayTeamName = ((EditText) findViewById(R.id.confirm_game_away_team_name)).getText().toString();
+                if (awayTeamName.equals("")) {
+                    ((EditText) findViewById(R.id.confirm_game_away_team_name)).setHintTextColor(Color.RED);
+                    return;
+                }
+                String gameName = ((EditText) findViewById(R.id.confirm_game_game_name)).getText().toString();
+                if (gameName.equals("")) {
+                    ((EditText) findViewById(R.id.confirm_game_game_name)).setHintTextColor(Color.RED);
+                    return;
+                }
+
+
                 GameHandler.startGame();
 
                 Intent intent = new Intent(self, AtBatActivity.class);

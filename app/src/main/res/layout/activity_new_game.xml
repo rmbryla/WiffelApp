@@ -14,6 +14,7 @@
         android:hint="Game Name"
         android:singleLine="true"
         android:imeOptions="actionDone"
+        android:textStyle="italic"
 
         app:layout_constraintTop_toTopOf="parent"
         />
