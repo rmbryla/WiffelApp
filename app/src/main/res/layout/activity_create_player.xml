@@ -14,6 +14,8 @@
         android:layout_marginLeft="12dp"
         android:textSize="@dimen/font_size_20"
         android:hint="Player Name"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -27,6 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/common_dimen_32"
         android:layout_marginRight="120dp"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
 
         android:hint="#"
 

@@ -21,6 +21,8 @@
         android:textSize="@dimen/font_size_16"
         android:gravity="center"
         android:text="0"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
         />
 
     <Button

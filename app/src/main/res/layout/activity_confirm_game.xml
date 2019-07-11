@@ -13,6 +13,8 @@
         android:layout_marginTop="@dimen/common_dimen_16"
         android:text="GAME NAME"
         android:textSize="@dimen/font_size_20"
+        android:singleLine="true"
+        android:imeOptions="actionDone"
 
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -33,14 +35,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="HOME TEAM NAME"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:imeOptions="actionDone"/>
 
         <EditText
             android:id="@+id/confirm_game_away_team_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="AWAY TEAM NAME"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:singleLine="true"
+            android:imeOptions="actionDone"/>
 
 
 

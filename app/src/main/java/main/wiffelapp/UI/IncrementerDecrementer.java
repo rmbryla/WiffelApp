@@ -91,6 +91,10 @@ public class IncrementerDecrementer extends LinearLayout {
 
     public void setAmount(int amount) {
 
+        try {
+            Integer.toString(amount);
+        } catch (Exception e) {}
+
         if (amount <= maxQuantity && amount >= minQunatity) {
             text.setText(Integer.toString(amount));
         }
