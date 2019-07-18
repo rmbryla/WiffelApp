@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import main.wiffelapp.Model.Game;
 import main.wiffelapp.Model.Player;
 import main.wiffelapp.Observers.GameHandler;
 import main.wiffelapp.R;
@@ -65,22 +66,23 @@ public class ConfirmGameActivity extends AppCompatActivity {
         findViewById(R.id.confirm_game_start_game_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Game game = GameHandler.getGame();
 
                 String homeTeamName = ((EditText) findViewById(R.id.confirm_game_home_team_name)).getText().toString();
                 if (homeTeamName.equals("")) {
                     ((EditText) findViewById(R.id.confirm_game_home_team_name)).setHintTextColor(Color.RED);
                     return;
-                }
+                } else game.setHomeName(homeTeamName);
                 String awayTeamName = ((EditText) findViewById(R.id.confirm_game_away_team_name)).getText().toString();
                 if (awayTeamName.equals("")) {
                     ((EditText) findViewById(R.id.confirm_game_away_team_name)).setHintTextColor(Color.RED);
                     return;
-                }
+                } else game.setAwayName(awayTeamName);
                 String gameName = ((EditText) findViewById(R.id.confirm_game_game_name)).getText().toString();
                 if (gameName.equals("")) {
                     ((EditText) findViewById(R.id.confirm_game_game_name)).setHintTextColor(Color.RED);
                     return;
-                }
+                } else game.setName(gameName);
 
 
                 GameHandler.startGame();

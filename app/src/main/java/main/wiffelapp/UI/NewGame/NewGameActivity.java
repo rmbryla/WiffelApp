@@ -111,7 +111,12 @@ public class NewGameActivity extends AppCompatActivity {
         findViewById(R.id.new_game_start_game_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                GameHandler.setName(((TextView) findViewById(R.id.new_game_game_name_input)).getText().toString());
+                Game game = GameHandler.getGame();
+
+                game.setName(((TextView) findViewById(R.id.new_game_game_name_input)).getText().toString());
+                game.setHomeName(((EditText) findViewById(R.id.home_team_name_input)).getText().toString());
+                game.setAwayName(((EditText) findViewById(R.id.away_team_name_input)).getText().toString());
+
                 GameHandler.setInnings(((IncrementerDecrementer) findViewById(R.id.new_game_innings_incrementer)).getAmount());
 
                 Intent intent = new Intent(self, ConfirmGameActivity.class);

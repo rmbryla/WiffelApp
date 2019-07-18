@@ -23,6 +23,8 @@ public class GameStatsActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_game_stats_page);
 
+        ((TextView) findViewById(R.id.game_stats_home_team_name)).setText(GameHandler.getHomeTeamName());
+        ((TextView) findViewById(R.id.game_stats_away_team_name)).setText(GameHandler.getAwayTeamName());
 
         LinearLayout homeTeamLinearLayout = findViewById(R.id.game_stats_home_team_linear_layout);
         LinearLayout awayTeamLinearLayout = findViewById(R.id.game_stats_away_team_linear_layout);
